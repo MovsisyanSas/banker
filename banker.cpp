@@ -75,7 +75,7 @@ public:
 			std::cout << "Please fill all fields properly!" << std::endl;
 		}
 	}
-	customer( customer &obj ) { //copy constructor
+	customer(const customer &obj ) { //copy constructor
 		credit = obj.credit;
 		cash = obj.cash; 
 		income = obj.income; 
@@ -85,9 +85,6 @@ public:
 		propertyPrice = obj.propertyPrice;
 	}
 
-	void display() {
-		agreement(check());
-	}
 };
 
 int main() {
@@ -112,6 +109,5 @@ int main() {
 
 	customer datas(credit, cash, income, goodhistory, work, debt, propertyPrice);
 
-	customer obj(datas);
-	obj.display();
+	customer const obj(datas); //just an example
 }
