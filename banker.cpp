@@ -75,6 +75,19 @@ public:
 			std::cout << "Please fill all fields properly!" << std::endl;
 		}
 	}
+	customer( customer &obj ) { //copy constructor
+		credit = obj.credit;
+		cash = obj.cash; 
+		income = obj.income; 
+		goodhistory = obj.goodhistory;
+		work = obj.work;
+		debt = obj.debt;
+		propertyPrice = obj.propertyPrice;
+	}
+
+	void display() {
+		agreement(check());
+	}
 };
 
 int main() {
@@ -98,4 +111,7 @@ int main() {
 	std::cin >> work;
 
 	customer datas(credit, cash, income, goodhistory, work, debt, propertyPrice);
+
+	customer obj(datas);
+	obj.display();
 }
